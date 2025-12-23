@@ -16,7 +16,7 @@ namespace HelloAvalonia
         static Database db = doc.Database;
 
         [CommandMethod("HelloAvalonia")]
-        public void HelloAvalonia()
+        public static void HelloAvalonia()
         {
             WindowExample window = new WindowExample();
             HostMgdAvalonia.ApplicationServices.Application.ShowModalWindow(window);
