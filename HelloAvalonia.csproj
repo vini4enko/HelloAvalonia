@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <PlatformCPP>$(Platform)</PlatformCPP>
+    <Platforms>x64</Platforms>
+    <Configurations>Debug NCAD;Release NCAD</Configurations>
+    <OutputPath>$(SolutionDir)bin-$(PlatformCPP)\$(Configuration)</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <ProduceReferenceAssembly>False</ProduceReferenceAssembly>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <!-- Основные пакеты Avalonia -->
+	  <PackageReference Include="Avalonia" Version="11.2.3" />
+	  <PackageReference Include="Avalonia.Desktop" Version="11.2.3" />
+	  <!-- Пакет для компиляции XAML в библиотеках -->
+	  <PackageReference Include="Avalonia.Markup.Xaml.Loader" Version="11.2.3" />
+	  <!-- Для поддержки темы по умолчанию, если она нужна в контроле -->
+	  <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.3" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="hostdbmgd">
+	    <HintPath>..\..\NC_SDK_RU_25.0.6998.4762.8055\include-x64\hostdbmgd.dll</HintPath>
+	    <Private>False</Private>
+	  </Reference>
+	  <Reference Include="hostmgd">
+	    <HintPath>..\..\NC_SDK_RU_25.0.6998.4762.8055\include-x64\hostmgd.dll</HintPath>
+	    <Private>False</Private>
+	  </Reference>
+	  <Reference Include="HostMgdAvalonia">
+	    <HintPath>..\..\NC_SDK_RU_25.0.6998.4762.8055\avalonia\hostMgdAvalonia.dll</HintPath>
+	    <Private>False</Private>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="WindowExample.axaml.cs">
+	    <DependentUpon>WindowExample.axaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+</Project>
